@@ -1,0 +1,66 @@
+path: ../data/TACO  # dataset root dir
+train: images/train  # train images (relative to path)
+val: images/val  # val images (relative to path)
+test:  images/test # test images (optional)
+
+names: # class names
+  0: aluminium foil
+  1: battery
+  2: aluminium blister pack
+  3: carded blister pack
+  4: other plastic bottle
+  5: clear plastic bottle 
+  6: glass bottle
+  7: plastic bottle cap
+  8: metal bottle cap
+  9: broken glass
+  10: food can
+  11: aerosol
+  12: drink can
+  13: toilet tube
+  14: other carton
+  15: egg carton
+  16: drink carton
+  17: corrugated carton
+  18: meal carton
+  19: pizza box
+  20: paper cup
+  21: disposable plastic cup
+  22: foam cup
+  23: glass cup 
+  24: other plastic cup
+  25: food waste
+  26: glass jar
+  27: plastic lid
+  28: metal lid 
+  29: other plastic 
+  30: magazine paper
+  31: tissues 
+  32: wrapping paper
+  33: normal paper 
+  34: paper bag
+  35: plastified paper bag
+  36: plastic film 
+  37: six pack rings
+  38: garbage bag
+  39: other plastic wrapper
+  40: single-use carrier bag
+  41: polypropylene bag
+  42: crisp packet
+  43: spread tub
+  44: tupperware
+  45: disposable food container
+  46: foam food container
+  47: other plastic container
+  48: plastic glooves
+  49: plastic utensils
+  50: pop tab
+  51: rope & strings
+  52: scrap metal
+  53: shoe 
+  54: squeezable tube
+  55: plastic straw
+  56: paper straw
+  57: styrofoam piece
+  58: unlabeled litter
+  59: cigarette
