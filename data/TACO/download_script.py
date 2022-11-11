@@ -86,6 +86,6 @@ def partition_dataset(ratio: tuple = (0.8, 0.1, 0.1)) -> None: # default to 80-1
     move_files(test_images, f"{IMAGE_DIR}/test")
     move_files(test_labels, f"{LABEL_DIR}/test")
 
-# make_directories() # create the required directory structure
-# download_dataset() # download the all the images and create their annotation files (this takes awhile)
-# partition_dataset() # move all the files to their respective folders
+make_directories() # create the required directory structure
+download_dataset() # download the all the images and create their annotation files (this takes awhile)
+partition_dataset() # move all the files to their respective folders

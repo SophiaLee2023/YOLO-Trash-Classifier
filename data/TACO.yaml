@@ -1,7 +1,7 @@
-path: ../data/TACO  # dataset root dir
-train: images/train  # train images (relative to path)
-val: images/val  # val images (relative to path)
-test:  images/test # test images (optional)
+path: ./data/TACO  # dataset root dir
+train: ./images/train  # train images (relative to path)
+val: ./images/val  # val images (relative to path)
+test:  ./images/test # test images (optional)
 
 names: # class names
   0: aluminium foil
