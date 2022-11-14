@@ -15,8 +15,6 @@ def condense_annotations(file_path: str) -> dict:
     for type_info in raw_data["categories"]:
         categories[type_info["id"]] = (type_info["name"], type_info["supercategory"])
 
-    print(categories)
-
     annotations: dict = {} # NOTE: id: (image_url, [(bounding_box, category_id, (category, supercategory)),], (image_width, image_height))
 
     for image_info in raw_data["images"]: 
