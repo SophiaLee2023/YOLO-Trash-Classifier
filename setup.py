@@ -18,4 +18,7 @@ print(f"PyTorch: {torch.__version__}\t TorchVision: {torchvision.__version__}\t 
       f"CUDA enabled: {torch.cuda.is_available()}\t CuDNN enabled: {torch.backends.cudnn.enabled}\n")
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-run_in_terminal(["python train.py --img 640 --batch 16 --epochs 10 --data TACO.yaml --weights yolov5s.pt --name trash_classifier"])
+run_in_terminal([
+    "python train.py --img 640 --batch 16 --epochs 10 --data TACO.yaml --weights WCAB_weights.pt --name trash_classifier",
+    "python detect.py --weights weights.pt --img 640 --conf 0.4 --source data/TACO/images/test --visualize"
+])
