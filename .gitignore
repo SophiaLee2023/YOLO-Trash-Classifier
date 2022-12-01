@@ -25,9 +25,11 @@
 
 storage.googleapis.com
 runs/*
+
 data/TACO/images/
 data/TACO/labels/
 !data/TACO/*.json
+data/TACO-high/
 
 # MATLAB GitIgnore -----------------------------------------------------------------------------------------------------
 *.m~
