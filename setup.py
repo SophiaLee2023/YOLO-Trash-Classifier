@@ -16,7 +16,7 @@ def install_requirements(GPU_integration: bool = False) -> None:
             "pip3 install torch==1.13.0+cu117 torchvision==0.14.0+cu117 torchaudio===0.13.0+cu117 -f https://download.pytorch.org/whl/cu117/torch_stable.html",
         ])
 
-# install_requirements()
+install_requirements()
 
 print(f"PyTorch: {torch.__version__}\t TorchVision: {torchvision.__version__}\t TorchAudio: {torchaudio.__version__}\n" +\
       f"CUDA enabled: {torch.cuda.is_available()}\t CuDNN enabled: {torch.backends.cudnn.enabled}\n")
@@ -30,6 +30,7 @@ def train_and_run(epochs: int, data: str, cfg: str, weights: str, source: str, n
     ])
 
 # train_and_run(3, "data/coco128.yaml", "", "weights/yolov5s.pt", "data/coco128/images/train2017", "coco128_classifier", 640, 0.25)
+# run_in_terminal(["python detect.py --img 1280 --weights weights/yolov5s.pt --source 0 --name webcam_recording"])
 
-# run_in_terminal(["python detect.py --weights weights/yolov5s.pt --source data/TACO/images/"]) 
-train_and_run(100, "data/TACO.yaml", "models/yolov5s_nc60.yaml", "weights/yolov5s.pt", "data/TACO/images/test", "trash_classifier", 640, 0.1)
+# train_and_run(100, "data/TACO.yaml", "models/yolov5s_nc60.yaml", "weights/yolov5s.pt", "data/TACO/images/test", "trash_classifier", 640, 0.1)
+run_in_terminal(["python detect.py --img 1280 --weights weights/trash_classifier_v1.pt --conf 0.1 --source 0 --name webcam_recording"])

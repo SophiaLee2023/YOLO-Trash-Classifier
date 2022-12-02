@@ -1,4 +1,4 @@
-import os, json, requests, random, shutil
+import os, sys, json, requests, shutil, random
 from pathlib import Path
 from PIL import Image
 
@@ -35,11 +35,19 @@ def make_directories() -> None:
         for subdir_name in "train", "val", "test":
             Path(f"{dir_name}/{subdir_name}").mkdir(parents=True, exist_ok=True) 
 
-def download_dataset() -> None:
+def resize_image(image_url: str, dl_img_size: int) -> Image:
+    image: Image = Image.open(requests.get(image_url, stream=True).raw) # open image from url
+
+    width, height = image.size
+    scalar: float = dl_img_size / float(width if width >= height else height) # the longest side should equal dl_img_size
+    return image.resize((int(width * scalar), int(height * scalar)))
+
+def download_dataset(dl_img_size: int) -> None: 
     for id, image_data in ANNOTATIONS.items():
         image_url, bbox_list, image_size = image_data
         
-        Image.open(requests.get(image_url, stream=True).raw).save(f"{IMAGE_DIR}/{id}.jpg") # download the image
+        # Image.open(requests.get(image_url, stream=True).raw).save(f"{IMAGE_DIR}/{id}.jpg") # download the image
+        resize_image(image_url, dl_img_size).save(f"{IMAGE_DIR}/{id}.jpg")
 
         with open(f"{LABEL_DIR}/{id}.txt", "w") as file: # create the label (annotation) file
             image_width, image_height = image_size
@@ -84,6 +92,6 @@ def partition_dataset(ratio: tuple = (0.8, 0.1, 0.1)) -> None: # default to 80-1
     move_files(test_images, f"{IMAGE_DIR}/test")
     move_files(test_labels, f"{LABEL_DIR}/test")
 
-make_directories() # create the required directory structure
-download_dataset() # download the all the images and create their annotation files (this takes awhile)
+# make_directories() # create the required directory structure
+download_dataset(sys.argv[1] if len(sys.argv) > 1 else 640) # download all the images and create their annotation files
 partition_dataset() # move all the files to their respective folders
