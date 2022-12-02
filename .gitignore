@@ -39,6 +39,7 @@ data/TACO-high/
 # Neural Network weights -----------------------------------------------------------------------------------------------
 *.weights
 *.pt
+!weights/trash_classifier_v1.pt
 *.pb
 *.onnx
 *.engine
