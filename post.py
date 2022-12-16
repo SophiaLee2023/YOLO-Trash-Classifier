@@ -1,4 +1,4 @@
-import torch, torchvision, torchaudio, pandas, numpy as np
+import torch, torchvision, torchaudio, pandas
 
 print(f"PyTorch: {torch.__version__}\t TorchVision: {torchvision.__version__}\t TorchAudio: {torchaudio.__version__}\n" +\
       f"CUDA enabled: {torch.cuda.is_available()}\t CuDNN enabled: {torch.backends.cudnn.enabled}\n")
