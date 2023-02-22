@@ -1,4 +1,4 @@
-# YOLO v7 TACO Trash Classifier
+# YOLO v5 TACO Trash Classifier
 
 ## Set-up Commands
 
